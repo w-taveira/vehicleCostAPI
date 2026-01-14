@@ -1,98 +1,168 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🚗 Vehicle Cost & Pricing Analysis API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+API desenvolvida em **NestJS** para análise de custos operacionais de veículos, cálculo de preço por quilômetro e verificação de viabilidade financeira, considerando **Pessoa Física (PF)** e **Pessoa Jurídica (PJ)**.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+O sistema oferece dois modos de análise:
+- **Básico** – cálculo direto e rápido
+- **Avançado** – cálculo iterativo com ajuste preciso de impostos e lucro alvo
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## ✨ Funcionalidades
 
-## Project setup
+- Cálculo de custos operacionais por km
+- Cálculo de preço mínimo necessário por km
+- Análise de viabilidade financeira
+- Suporte a **PF e PJ**, com regras tributárias distintas
+- Modo **Básico** e **Avançado**
+- Validação completa de dados com `class-validator`
+- Arquitetura limpa baseada em **Use Cases**
+- Pronto para uso com **Docker**
 
-```bash
-$ npm install
-```
+---
 
-## Compile and run the project
+## 🧠 Conceitos aplicados
 
-```bash
-# development
-$ npm run start
+- Clean Architecture (Use Cases + Domain)
+- Strategy Pattern para impostos
+- Separação clara entre lógica básica e avançada
+- Validação de entrada via DTOs
+- Código preparado para expansão futura (auth, histórico, banco de dados)
 
-# watch mode
-$ npm run start:dev
+---
 
-# production mode
-$ npm run start:prod
-```
+## 🛠️ Tecnologias
 
-## Run tests
+- Node.js
+- NestJS
+- TypeScript
+- Docker
+- class-validator
+- class-transformer
 
-```bash
-# unit tests
-$ npm run test
+---
 
-# e2e tests
-$ npm run test:e2e
+## 📦 Instalação
 
-# test coverage
-$ npm run test:cov
-```
+### Pré-requisitos
+- Node.js 18+
+- Docker (opcional)
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### Instalação local
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npm install
+npm run start:dev
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+###A API estará disponível em:
+```bash
+http://localhost:3000
+```
 
-## Resources
+### 🐳 Executando com Docker
 
-Check out a few resources that may come in handy when working with NestJS:
+```bash
+docker build -t vehicle-api .
+docker run -p 3000:3000 vehicle-api
+```
+---
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## 📡 Endpoints
 
-## Support
+### 🔹 Análise Básica
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+POST /vehicle/analyze/basic
+```
+Calcula custos, preço necessário e viabilidade de forma direta.
 
-## Stay in touch
+### 🔹 Análise Avançada
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```bash
+POST /vehicle/analyze/advanced
+```
+Executa cálculo iterativo para encontrar o preço por km ideal que atinge exatamente o lucro alvo, considerando impostos reais.
 
-## License
+### 🔹 Preço Necessário por Km
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+```bash
+POST /vehicle/required-price
+```
+Retorna o preço mínimo por km e o ponto de equilíbrio.
+
+---
+
+## 🧾 Exemplo de Request
+
+```bash
+{
+  "kmPerMonth": 5000,
+  "profitTarget": 5000,
+  "taxType": "PF",
+  "fuelConsumptionPerLiter": 10,
+  "fuelPricePerLiter": 6,
+  "tireDurabilityKm": 40000,
+  "tireCost": 2000,
+  "oilChangeIntervalKm": 10000,
+  "oilChangeCost": 300,
+  "vehicleValue": 60000,
+  "annualDepreciationRate": 0.1,
+  "fipeValue": 60000,
+  "ipvaRate": 0.04,
+  "insuranceAnnualCost": 2400
+}
+```
+
+---
+
+## ⚠️ Validação de Dados
+
+Todos os campos são validados automaticamente.
+Exemplo de erro:
+
+```bash
+{
+  "statusCode": 400,
+  "message": [
+    "kmPerMonth must be greater than zero",
+    "profitTarget must be greater than zero",
+    "taxType must be one of the following values: PF, PJ"
+  ],
+  "error": "Bad Request"
+}
+```
+
+---
+
+## 🧮 Diferença entre Básico e Avançado
+
+| Modo     | Descrição                                               |
+| -------- | ------------------------------------------------------- |
+| Básico   | Usa uma taxa fixa de imposto                            |
+| Avançado | Ajusta o preço iterativamente até atingir o lucro exato |
+
+---
+
+## 🚀 Roadmap (futuro)
+
+- Autenticação por API Key
+- Histórico de simulações
+- Persistência em banco de dados
+- Dashboard web
+- Rate limiting
+- Deploy automatizado
+
+---
+
+## 📄 Licença
+
+Este projeto está sob licença MIT.
+
+---
+
+## 👤 Autor
+
+Desenvolvido por Wellington Oliveira Guedes Taveira
+
+---
